@@ -1,0 +1,127 @@
+body {
+	padding: 5px;
+}
+.main {
+	position: absolute;
+	width: 800px;
+	/*height: 100%;*/
+	/*background-color: #F8F8F8;*/
+	left: 50%;
+	margin-left: -400px;
+	border-radius: 8px;
+	border: 1px solid #C0C0C0;
+	padding: 5px;
+}
+.title, .content, .floor {
+	width: 100%;
+	display: inline-block;
+	position: relative;
+	border-radius: 8px;
+	background-color: #F8F8F8;
+}
+.title {
+	text-align: center;
+	height: 10%;
+	/*border: 1px solid #C0C0C0;*/
+	/*box-sizing: border-box;*/
+	position: relative;
+}
+.content {
+	height: 80%;
+	margin-top: 5px;
+	border: 1px solid #C0C0C0;
+}
+.floor {
+	margin-top: 5px;
+	height: 10%;
+	text-align: right;
+}
+.floor p {
+	padding: 5px;
+}
+#sites {
+	display: block;
+	border-radius: 8px;
+	/*background-color: red;*/
+	height: 100%;
+	padding: 5px;
+}
+.site {
+	background-color: #E8E8E8;
+	position: relative;
+	display: inline-block;
+	border-radius: 8px;
+	height: 50px;
+	width: 100%;
+	margin-bottom: 5px;
+	box-sizing: border-box;
+	border: 1px solid #F0F0F0;
+}
+.site:hover {
+	/*border: 1px solid #FF9900*/
+	background-color: #E0E0E0;
+}
+.leftPosition {
+	position: relative;
+	vertical-align: middle;
+	display: inline-block;
+	/*border-top-left-radius: 8px;*/
+	width: 60%;
+	height: 100%
+}
+.leftPosition span {
+	position: relative;
+	left: 15px;
+	display: inline-block;
+	top: 0px;
+	/*line-height: 100%;*/
+	margin-top: -6px;
+}
+.rightPosition {
+	display: inline-block;
+	/*border-top-right-radius: 8px;*/
+	width: 40%;
+	height: 100%;
+}
+.buttons {
+	position: relative;
+	display: inline-block;
+	width: 300px;
+	height: 40px;
+	margin-left: -150px;
+	margin-bottom: 5px;
+	left: 50%;
+}
+.button {
+	cursor: pointer;
+	position: relative;
+	width: 130px;
+	height: 30px;
+	display: inline-block;
+	box-sizing: border-box;
+	border: 1px solid #C0C0C0;
+	border-radius: 8px;
+	background-color: #D8D8D8;
+}
+.button:hover {
+	border: 1px solid #FF9900;
+	background-color: #C8C8C8; 
+}
+.button span {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100%;
+	vertical-align: middle;
+	text-align: center;
+	padding-top: 5px;
+}
+.button.site-button {
+	top: 9px;
+	position: absolute;
+	right: 5px;
+}
+.button.cansel {
+	margin-left: 36px;
+}
+
