@@ -45,6 +45,7 @@ body {
 	/*background-color: red;*/
 	height: 100%;
 	padding: 5px;
+	/*overflow: scroll;*/
 }
 .site {
 	background-color: #E8E8E8;
@@ -59,6 +60,7 @@ body {
 }
 .site:hover {
 	/*border: 1px solid #FF9900*/
+	transition: background-color 500ms;
 	background-color: #E0E0E0;
 }
 .leftPosition {
@@ -86,11 +88,9 @@ body {
 .buttons {
 	position: relative;
 	display: inline-block;
-	width: 300px;
+	width: 100%;
 	height: 40px;
-	margin-left: -150px;
 	margin-bottom: 5px;
-	left: 50%;
 }
 .button {
 	cursor: pointer;
@@ -103,23 +103,33 @@ body {
 	border-radius: 8px;
 	background-color: #D8D8D8;
 }
+.button:focus {
+	outline: none;
+}
 .button:hover {
 	border: 1px solid #FF9900;
+}
+.buttons .button:hover {
+	transition: background-color 300ms;
 	background-color: #C8C8C8; 
 }
-.button span {
-	position: relative;
-	display: block;
-	width: 100%;
-	height: 100%;
-	vertical-align: middle;
-	text-align: center;
-	padding-top: 5px;
-}
+
 .button.site-button {
 	top: 9px;
 	position: absolute;
 	right: 5px;
+}
+.button.site-button.Enable {
+	background-color: #B8FABA;
+}
+.button.site-button.Enable:hover {
+	background-color: #62FA67;
+}
+.button.site-button.Disable {
+	background-color: #FBA6A6;
+}
+.button.site-button.Disable:hover {
+	background-color: #FD7171;
 }
 .button.cansel {
 	margin-left: 36px;

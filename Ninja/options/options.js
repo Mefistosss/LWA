@@ -3,6 +3,11 @@ var container, nws, l, sites = [];
 function hasClass(el, cls) {
 	return el.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
 }
+// function removeClass(el, klass) {
+// 	if (el && klass && hasClass(el, klass)) {
+// 		el.className.replace(new RegExp( '/(?:^|\s)'+klass+'(?!\S)/' ), '' );
+// 	}
+// }
 
 function addClass( el, klass ) {
 	if ( klass && !hasClass(el, klass) ) {
@@ -10,26 +15,44 @@ function addClass( el, klass ) {
 	}
 	return this;
 }
-
+function create(node) {
+	var _node = document.createElement(node);
+	return _node;
+}
+function setButtonStatus() {
+	if (hasClass(this, 'Enable')) {
+		this.classList.remove('Enable');
+		addClass(this, 'Disable');
+		this.childNodes[0].remove();
+		this.appendChild(document.createTextNode('Disable'));
+	} else {
+		this.classList.remove('Disable');
+		addClass(this, 'Enable');
+		this.childNodes[0].remove();
+		this.appendChild(document.createTextNode('Enable'));
+	}
+}
 function addElements(par, name) {
-	var lp = document.createElement('div'),
-		rp = document.createElement('div'),
-		span = document.createElement('span'),
-		div = document.createElement('div');
-	addClass(lp, 'leftPosition');
-	addClass(rp, 'rightPosition');
+	var lp = create('div'),
+		rp = create('div'),
+		span = create('span'),
+		button = create('button'),
+		buttonStatus = (localStorage[name] == "true") ? 'Enable' : 'Disable';
 
+	addClass(lp, 'leftPosition');
 	span.appendChild(document.createTextNode(name));
 	lp.appendChild(span);
-
-	span = document.createElement('span');
-	addClass(div, 'button');
-	addClass(div, 'site-button');
-	span.appendChild(document.createTextNode('name'));
-	div.appendChild(span);
-	rp.appendChild(div);
-
 	par.appendChild(lp);
+
+	addClass(rp, 'rightPosition');
+	button.addEventListener('click', setButtonStatus);
+	button.appendChild(document.createTextNode(buttonStatus));
+	button.name = name;
+	button.id = 'sitesButton';
+	addClass(button, 'button');
+	addClass(button, 'site-button');
+	addClass(button, buttonStatus);
+	rp.appendChild(button);
 	par.appendChild(rp);
 }
 function loadOptions() {
@@ -42,8 +65,15 @@ function loadOptions() {
 		console.log(r, localStorage[r]);
 		console.log('---', localStorage[r] == 'true');
 	}
-
-	
+}
+function setOptions(button) {
+	localStorage[nws[i]]
+}
+function saveOptions() {
+	console.log('saveOptions');
+}
+function canselOptions() {
+	console.log('canselOptions');
 }
 
 function init() {
@@ -60,6 +90,11 @@ function init() {
 
 document.addEventListener('DOMContentLoaded', function () {
 	nws = localStorage["n_w_s"].split(',');
+	document.getElementById("buttonSave").addEventListener("click", saveOptions);
+	document.getElementById("buttonCansel").addEventListener("click", canselOptions);
+
+
+
 	loadOptions();
 	init();
 });
