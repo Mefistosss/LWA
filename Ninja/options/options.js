@@ -1,4 +1,4 @@
-var container, nws, l, sites = [];
+var container, nws, l, sites = [], buttonSites = [];
 
 function hasClass(el, cls) {
 	return el.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
@@ -19,15 +19,17 @@ function create(node) {
 	var _node = document.createElement(node);
 	return _node;
 }
-function setButtonStatus() {
-	if (hasClass(this, 'Enable')) {
+function setButtonStatus(status) {
+	if (status == 'Disable' || hasClass(this, 'Enable')) {
 		this.classList.remove('Enable');
 		addClass(this, 'Disable');
+		this.value = 'false';
 		this.childNodes[0].remove();
 		this.appendChild(document.createTextNode('Disable'));
-	} else {
+	} else if (status == 'Enable' || hasClass(this, 'Disable')) {
 		this.classList.remove('Disable');
 		addClass(this, 'Enable');
+		this.value = 'true';
 		this.childNodes[0].remove();
 		this.appendChild(document.createTextNode('Enable'));
 	}
@@ -37,7 +39,10 @@ function addElements(par, name) {
 		rp = create('div'),
 		span = create('span'),
 		button = create('button'),
-		buttonStatus = (localStorage[name] == "true") ? 'Enable' : 'Disable';
+		buttonStatus;
+
+	!localStorage[name] && (localStorage[name] = true);
+	buttonStatus = (localStorage[name] == "true") ? 'Enable' : 'Disable';
 
 	addClass(lp, 'leftPosition');
 	span.appendChild(document.createTextNode(name));
@@ -48,32 +53,33 @@ function addElements(par, name) {
 	button.addEventListener('click', setButtonStatus);
 	button.appendChild(document.createTextNode(buttonStatus));
 	button.name = name;
+	button.value = localStorage[name];
 	button.id = 'sitesButton';
 	addClass(button, 'button');
 	addClass(button, 'site-button');
 	addClass(button, buttonStatus);
 	rp.appendChild(button);
 	par.appendChild(rp);
+	buttonSites.push(button);
 }
-function loadOptions() {
-	var i;
-	l = nws.length;
-	for (i = 0; i < l; i++) {
-		!localStorage[nws[i]] && (localStorage[nws[i]] = true);
-	}
-	for (var r in localStorage) {
-		console.log(r, localStorage[r]);
-		console.log('---', localStorage[r] == 'true');
-	}
-}
-function setOptions(button) {
-	localStorage[nws[i]]
-}
+
 function saveOptions() {
-	console.log('saveOptions');
+	for(var i = 0; i < buttonSites.length; i++) {
+		localStorage[buttonSites[i].name] = buttonSites[i].value;
+	}
 }
 function canselOptions() {
-	console.log('canselOptions');
+	for(var i = 0; i < buttonSites.length; i++) {
+		if (localStorage[buttonSites[i].name] != buttonSites[i].value) {
+			setButtonStatus.call(buttonSites[i], ((localStorage[buttonSites[i].name] == 'true') ? 'Enable' : 'Disable') );
+		}
+	}
+}
+function enableDisableAll() {
+	var i, curClass = hasClass(this, 'enableAll') ? 'Enable' : 'Disable';
+	for (i = 0; i < buttonSites.length; i++) {
+		setButtonStatus.call(buttonSites[i], curClass);
+	}
 }
 
 function init() {
@@ -92,9 +98,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	nws = localStorage["n_w_s"].split(',');
 	document.getElementById("buttonSave").addEventListener("click", saveOptions);
 	document.getElementById("buttonCansel").addEventListener("click", canselOptions);
+	document.getElementById("enableAll").addEventListener("click", enableDisableAll);
+	document.getElementById("disableAll").addEventListener("click", enableDisableAll);
 
-
-
-	loadOptions();
 	init();
 });
