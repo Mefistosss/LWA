@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Ninja",
-	"description": "Remove ads from websites",
+	"description": "Life without advertising",
 	"version": "1.0.0",
 
 	"options_page": "options/options.html",
