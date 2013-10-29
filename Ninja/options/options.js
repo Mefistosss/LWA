@@ -1,3 +1,4 @@
+'use strict';
 var container, nws, l, sites = [], buttonSites = [];
 
 function hasClass(el, cls) {
