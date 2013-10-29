@@ -52,7 +52,6 @@ body {
 	height: 100%;
 	padding: 5px;
 	overflow: hidden;
-
 }
 .site {
 	background-color: #E8E8E8;
@@ -156,10 +155,15 @@ body {
 .button.disableAll:hover {
 	background-color: #FD7171;
 }
+.button.cansel,
+.button.save,
+.button.disableAll,
+.button.enableAll {
+	top: 5px;
+}
 .button.disableAll, .button.enableAll {
 	text-align: right;
 	width: 60px;
-	top: 5px;
 }
 .enableDisable span {
 	position: relative;
