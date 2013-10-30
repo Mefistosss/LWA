@@ -1,7 +1,8 @@
 'use strict';
 
 var NINJA_WEB_SITES = [
-		"filmix.net"
+		"filmix.net",
+		"torrentino.com"
 	],
 	ninjaTab = [];
 
@@ -50,7 +51,7 @@ function removeTab (id) {
 	}
 }
 function ninjaWorks (ninjaWebSite, id) {
-	chrome.tabs.executeScript(id, {file : 'js/' + ninjaWebSite + '.js'});
+	(localStorage[ninjaWebSite] == 'true') && chrome.tabs.executeScript(id, {file : 'js/' + ninjaWebSite + '.js'});
 }
 
 chrome.tabs.onUpdated.addListener(function(id, loadOptions, tab) {

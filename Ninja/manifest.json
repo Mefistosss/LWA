@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "Ninja",
 	"description": "Life without advertising",
-	"version": "1.0.0",
+	"version": "1.1.0",
 
 	"options_page": "options/options.html",
 
@@ -24,6 +24,7 @@
     
     "permissions": [
     	"tabs",
-    	"http://filmix.net/"
+    	"http://filmix.net/",
+    	"http://www.torrentino.com/"
 	]
 }
