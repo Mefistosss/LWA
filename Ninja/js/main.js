@@ -2,7 +2,7 @@
 
 var NINJA_WEB_SITES = [
 		"filmix.net",
-		"filmdegix.net2",
+		"torrentino.com",
 		"filmsdfdegix.net2"
 	],
 	ninjaTab = [];
@@ -15,7 +15,6 @@ function checkUrl (url, id) {
 		reg = new RegExp(NINJA_WEB_SITES[i], 'ig');
 		if (reg.test(url)) {
 			value = NINJA_WEB_SITES[i];
-			// ninjaWorks(NINJA_WEB_SITES[i], id);
 			break;
 		}
 	}

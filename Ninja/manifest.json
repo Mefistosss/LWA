@@ -39,7 +39,8 @@
     
     "permissions": [
     	"tabs",
-    	"http://filmix.net/"
+    	"http://filmix.net/",
+    	"http://www.torrentino.com/"
 	]
 
 	// "content_security_policy": "script-src 'self';  object-src 'self';"
