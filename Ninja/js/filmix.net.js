@@ -12,5 +12,5 @@
 			els[i].parentNode.removeChild(els[i]);	
 		}
 	}
-
+	
 })();

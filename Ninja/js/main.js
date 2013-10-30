@@ -1,15 +1,5 @@
 'use strict';
 
-// chrome.windows.getCurrent(function(w){
-//   chrome.tabs.getSelected(w.id, function(t){
-//   	console.log(t);
-//     // port = chrome.tabs.connect(t.id);
-//   })
-// });
-// chrome.windows.getAll(function(w){
-// 	console.log(w);
-// });
-
 var NINJA_WEB_SITES = [
 		"filmix.net",
 		"filmdegix.net2",
@@ -63,7 +53,7 @@ function removeTab (id) {
 	}
 }
 function ninjaWorks (ninjaWebSite, id) {
-	chrome.tabs.executeScript(id, {file : 'js/' + ninjaWebSite + '.js'});
+	(localStorage[ninjaWebSite] == 'true') && chrome.tabs.executeScript(id, {file : 'js/' + ninjaWebSite + '.js'});
 }
 
 chrome.tabs.onUpdated.addListener(function(id, loadOptions, tab) {
