@@ -28,8 +28,6 @@ body {
 .title {
 	text-align: center;
 	height: 10%;
-	/*border: 1px solid #C0C0C0;*/
-	/*box-sizing: border-box;*/
 }
 .content {
 	height: 80%;

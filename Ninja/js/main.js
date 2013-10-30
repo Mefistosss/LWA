@@ -1,19 +1,7 @@
 'use strict';
 
-// chrome.windows.getCurrent(function(w){
-//   chrome.tabs.getSelected(w.id, function(t){
-//   	console.log(t);
-//     // port = chrome.tabs.connect(t.id);
-//   })
-// });
-// chrome.windows.getAll(function(w){
-// 	console.log(w);
-// });
-
 var NINJA_WEB_SITES = [
-		"filmix.net",
-		"filmdegix.net2",
-		"filmsdfdegix.net2"
+		"filmix.net"
 	],
 	ninjaTab = [];
 
@@ -25,7 +13,6 @@ function checkUrl (url, id) {
 		reg = new RegExp(NINJA_WEB_SITES[i], 'ig');
 		if (reg.test(url)) {
 			value = NINJA_WEB_SITES[i];
-			// ninjaWorks(NINJA_WEB_SITES[i], id);
 			break;
 		}
 	}
@@ -67,15 +54,12 @@ function ninjaWorks (ninjaWebSite, id) {
 }
 
 chrome.tabs.onUpdated.addListener(function(id, loadOptions, tab) {
-	// console.log('onUpdated', id, loadOptions ,tab);
 	addTab(id, tab, loadOptions);
 });
 chrome.tabs.onRemoved.addListener(function(id, tab) {
-	// console.log('onRemoved', id, tab);
 	removeTab(id);
 });
 chrome.tabs.onCreated.addListener(function(tab) {
-	// console.log('onCreated', tab);
 	addTab(tab.id, tab);
 });
 

@@ -4,11 +4,6 @@ var container, nws, l, sites = [], buttonSites = [];
 function hasClass(el, cls) {
 	return el.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
 }
-// function removeClass(el, klass) {
-// 	if (el && klass && hasClass(el, klass)) {
-// 		el.className.replace(new RegExp( '/(?:^|\s)'+klass+'(?!\S)/' ), '' );
-// 	}
-// }
 
 function addClass( el, klass ) {
 	if ( klass && !hasClass(el, klass) ) {

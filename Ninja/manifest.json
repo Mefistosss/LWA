@@ -9,12 +9,6 @@
 	"background" : {
 		"page": "background.html"
 	},
-	
-	// "background": {
-	// 	"scripts": ["js/main.js"]
-	// },
-	
-
 
 	"icons": {
 		"128": "icons/NinjaToy_128x128.png",
@@ -27,22 +21,9 @@
 	    "default_icon": "icons/NinjaToy_48x48.png",
 	    "default_popup": "popup/popup.html"
     },
-
-	// "page_action": {
-	//     "default_icon": {                    
-	//       "19": "icons/NinjaToy_19x19.png",          
-	//       "38": "icons/NinjaToy_38x38.png"            
-	//     },
-	//     "default_title": "Ninja",     
-	//     "default_popup": "page_action/popup.html"        
-	// },
     
     "permissions": [
     	"tabs",
     	"http://filmix.net/"
 	]
-
-	// "content_security_policy": "script-src 'self';  object-src 'self';"
-
-    // Для автоматического апедейта приложения надо заполнить "update_url" поле в манифесте. По URL должен открываться udate.xml файл, в котором надо не забыть прописать верный appid='xxxxxyyyyyzzzz'. ID найти не так уже и просто :) Надо установить .crx в Chrome, зайти на страницу приложений, и включить Developers mode. Тогда в списке приложений так же появятся и их ID (случайно нашел!)
 }
